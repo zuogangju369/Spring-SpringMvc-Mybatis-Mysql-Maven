@@ -1,5 +1,6 @@
 import com.model.User;
 import com.service.UserServiceI;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.Scanner;
 @ContextConfiguration(locations = {"classpath:spring.xml","classpath:spring-mybatis.xml"})
 public class TestMybatis {
 
+    private static final Logger logger = Logger.getLogger(TestMybatis.class);
     private UserServiceI userService;
 
     public UserServiceI getUserService() {
@@ -30,11 +32,9 @@ public class TestMybatis {
 
     @Test
     public void test1(){
-        ApplicationContext ac=new ClassPathXmlApplicationContext(new String[]{"spring.xml","spring-mybatis.xml"});
-        UserServiceI userService=(UserServiceI)ac.getBean("userService");
         User user=userService.getUserById("1");
 
-        System.out.println(user.getUsername());
+        logger.info(user.getUsername()+"-------------------------------------");
     }
 
 }
