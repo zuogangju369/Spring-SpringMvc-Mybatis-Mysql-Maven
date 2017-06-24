@@ -15,7 +15,9 @@ $RECYCLE.BIN/
 *.msp
 .idea/
 target/
+*.iml
 *.log
+
 
 # =========================
 # Operating System Files
